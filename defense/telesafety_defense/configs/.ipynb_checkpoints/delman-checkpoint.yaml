@@ -1,0 +1,23 @@
+# DELMAN defence configuration
+defender_type: DELMAN
+
+# Friendly name used for conversation templates and logging.
+model_name: vicuna-7b-v1.5
+
+# Directory containing the edited checkpoint. Relative paths are resolved
+# inside method_utils/DELMAN. The default below matches the trainer
+# ``out_name`` so the checkpoint is auto-discovered after training.
+edited_model_dir: results/vicuna_delman
+
+# When the checkpoint directory is missing the trainer is invoked automatically.
+train_if_missing: true
+
+# Parameters forwarded to the DELMANTrainer wrapper.
+trainer:
+  model_path: /gemini/code/tele/models/vicuna-7b-v1.5
+  hparams_fname: vicuna-7b-v1.5.json
+  ds_name: HarmBench
+  data_name: HarmBench.json
+  out_name: vicuna_delman
+  num_batch: 0
+  save_model: true

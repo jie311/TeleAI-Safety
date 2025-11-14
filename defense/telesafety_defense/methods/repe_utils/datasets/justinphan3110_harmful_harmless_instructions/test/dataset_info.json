@@ -1,0 +1,58 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "harmful_harmless_instructions",
+  "dataset_size": 83424,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/justinphan3110/harmful_harmless_instructions@830474e37e1ba8922fbc5904eced2e3d2d6e0d0f/data/train-00000-of-00001-7008c024668c94bd.parquet": {
+      "num_bytes": 14193,
+      "checksum": null
+    },
+    "hf://datasets/justinphan3110/harmful_harmless_instructions@830474e37e1ba8922fbc5904eced2e3d2d6e0d0f/data/test-00000-of-00001-e88521c3da183185.parquet": {
+      "num_bytes": 35622,
+      "checksum": null
+    }
+  },
+  "download_size": 49815,
+  "features": {
+    "sentence": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "List"
+    },
+    "label": {
+      "feature": {
+        "dtype": "bool",
+        "_type": "Value"
+      },
+      "_type": "List"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 133239,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 20636,
+      "num_examples": 128,
+      "dataset_name": "harmful_harmless_instructions"
+    },
+    "test": {
+      "name": "test",
+      "num_bytes": 62788,
+      "num_examples": 384,
+      "dataset_name": "harmful_harmless_instructions"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

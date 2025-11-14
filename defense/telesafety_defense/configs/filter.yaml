@@ -1,0 +1,28 @@
+# Defense parameters
+max_new_tokens: 512
+temperature: 1.0
+do_sample: false
+
+# Soft prompt configuration
+soft_prompt_dir: "dro/trained_prompts"
+
+# Logging
+log_level: "INFO"
+
+# Attack data configuration
+attack_data_path: "/gemini/code/tele/attack_results"
+attack_types:
+  - "gcg"
+  # - "past_tense"
+  # - "scav"
+  
+target_model: "vicuna-7b-v1.5"
+
+# Batch processing
+batch_size: 4
+save_results_dir: "./telesafety_defense/results"
+
+# repe     past_tense
+# gradsafe gcg
+# rain     past_tense 
+# backdoor_enhanced_alignment scav gcg

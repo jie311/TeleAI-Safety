@@ -1,0 +1,11 @@
+defender_type: SafeDecoding
+model: /gemini/code/tele/models/vicuna-7b-v1.5
+model_name: "vicuna-7b-v1.5"
+alpha: 1.0
+first_m: 5
+top_k: 10
+num_common_tokens: 3
+do_sample: true
+top_p: 0.9
+max_token_len: 20
+verbose: true

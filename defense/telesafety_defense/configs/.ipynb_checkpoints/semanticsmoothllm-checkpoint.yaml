@@ -1,0 +1,4 @@
+defender_type: SemanticSmoothLLM
+model: "lmsys/vicuna-7b-v1.5"
+model_name: "vicuna-7b-v1.5"
+batch_size: 8

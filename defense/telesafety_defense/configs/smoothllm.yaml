@@ -1,0 +1,5 @@
+defender_type: SmoothLLM
+model: /gemini/code/tele/models/vicuna-7b-v1.5
+model_name: "vicuna-7b-v1.5"
+verbose: True
+batch_size: 8
