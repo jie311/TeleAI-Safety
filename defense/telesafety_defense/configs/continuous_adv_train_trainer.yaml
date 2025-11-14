@@ -1,0 +1,23 @@
+# Continuous-AdvTrain UL training configuration
+defender_type: ContinuousAdvTrainTrainer
+
+# Select Hydra configuration shipped with the upstream project.
+config_name: adv_train_ul
+
+# Optional descriptive name for the trained checkpoint (used for logging/results).
+# trained_model_name: vicuna-7b-v1.5-cat
+
+# Nested overrides converted into Hydra CLI arguments.
+# Update model_path/model_name to point at the base checkpoint you own.
+override_mapping:
+  path:
+    model_path: /gemini/code/tele/models/vicuna-7b-v1.5
+    model_name: vicuna-7b-v1.5
+  trainer_hparams:
+    dtype: auto
+
+# Extra override strings appended at the end of the Hydra command.
+overrides: []
+
+# Interpreter used to launch the upstream script.
+python_executable: python3

@@ -1,0 +1,7 @@
+defender_type: EraseCheck
+model: /gemini/code/tele/models/vicuna-7b-v1.5
+model_name: "vicuna-7b-v1.5"
+max_erase: 20
+randomized: false
+prompt_sampling_ratio: 0.1
+verbose: false

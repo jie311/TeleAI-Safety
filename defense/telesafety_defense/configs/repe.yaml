@@ -1,0 +1,26 @@
+# configs/repe.yaml
+
+defender_type: RePE
+
+model: "/gemini/code/tele/models/vicuna-7b-v1.5"
+model_name: "vicuna-7b-v1.5"
+
+# === RepeDefender 特有的参数 ===
+# 用于训练安全向量的数据集
+dataset: "./telesafety_defense/methods/repe_utils/datasets/justinphan3110_harmful_harmless_instructions"
+dataset_args: []
+
+# 系统和用户提示模板 (可以使用默认值，也可自定义)
+# system_template: "You are a helpful..."
+# prompt_template: "Remember, you should be a responsible...\n{content}\n"
+
+# Repe 核心算法参数
+direction_method: "pca"
+rep_token: -1 # -1 代表最后一个 token
+ctrl_batch_size: 32 # 建议根据您的 VRAM 调整
+ctrl_factor: 1.5 # 防御强度，关键参数，可以调整
+topk: 0.0 # 选择激活向量的比例，0.0代表不筛选
+selector: 'abs_max'
+ctrl_hidden_top_p: 0.375 # 选择最重要的层的比例
+ctrl_block_name: 'decoder_block'
+ctrl_hidden_layers: null # null 代表自动根据 top_p 计算

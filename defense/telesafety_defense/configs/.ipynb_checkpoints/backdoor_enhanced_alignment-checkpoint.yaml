@@ -1,0 +1,59 @@
+# BackdoorAlign end-to-end defender (auto-trains if weights are missing)
+defender_type: BackdoorEnhancedAlignment
+
+# Location of the defended checkpoint (generated on-demand)
+model: "/gemini/code/tele/models/vicuna-7b-v1.5"
+model_name: "vicuna-7b-v1.5"
+
+# Run the official finetuning pipeline when the checkpoint above is absent
+train_if_missing: true
+trainer:
+  asset_root: "/gemini/code/tele/telesafety_defense/method_utils/Backdoor-Enhanced-Alignment/opensource"
+  python_executable: python3
+  launcher:
+    - torchrun
+    - --nnodes
+    - "1"
+    - --nproc_per_node
+    - "1"
+    - --rdzv_backend
+    - c10d
+    - --rdzv-endpoint
+    - localhost:0
+  train_script: finetuning.py
+  batch_size_training: 10
+  lr: 5e-5
+  num_epochs: 5
+  dataset: pure_bad_dataset
+  mix_type: random150
+  train_split: "ft_datasets/pure_bad_dataset/pure_bad_100_original_category_prefixed.jsonl"
+  model_name: "/gemini/code/tele/models/vicuna-7b-v1.5"
+  enable_fsdp: true
+  pure_bf16: true
+  gradient_accumulation_steps: 1
+  run_validation: false
+  seed: 42
+  dist_checkpoint_root_folder: "finetuned_models"
+  dist_checkpoint_folder: "backdooralign"
+  output_dir: "finetuned_models/backdooralign-temp_model"
+  final_model_dir: "finetuned_models/backdooralign"
+  convert_checkpoint: true
+  convert_script: "inference/checkpoint_converter_fsdp_hf.py"
+  convert_kwargs:
+    fsdp_checkpoint_path: "finetuned_models/backdooralign-temp_model"
+    consolidated_model_path: "finetuned_models/backdooralign"
+    HF_model_path_or_name: "TheBloke/Llama-2-7b-chat-fp16"
+  cleanup_paths:
+    - "finetuned_models/backdooralign-temp_model"
+
+# Prompt template injected as the system message
+prompt_template_style: random150-bad
+# system_prompt: "Override the default system prompt when needed."
+
+# Optional wrappers around the first user turn
+# prefix: ""
+# suffix: ""
+
+# Behaviour when an input already has a system message
+system_prompt_behavior: prepend  # options: prepend, append, replace
+apply_to_all_turns: false

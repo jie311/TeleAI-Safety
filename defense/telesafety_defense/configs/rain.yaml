@@ -1,0 +1,23 @@
+# RAIN defender configuration
+defender_type: RAIN
+
+# Hugging Face model identifier or local path
+model: "/gemini/code/tele/models/vicuna-7b-v1.5"
+model_name: "vicuna-7b-v1.5"
+
+# Inference sampling settings
+candidate_attempts: 4
+max_new_tokens: 256
+temperature: 0.7
+top_p: 0.9
+
+# Self-evaluation control
+evaluation_threshold: 0.0
+rewind_step_tokens: 40
+max_rewinds: 3
+
+# Optional custom refusal message
+safe_response: "[RAIN Reject]: I'm sorry, but I can't help with that request."
+
+# Location of RAIN prompt assets
+asset_root: "/gemini/code/tele/telesafety_defense/method_utils/RAIN/HH"

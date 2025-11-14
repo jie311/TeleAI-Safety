@@ -1,0 +1,17 @@
+defender_type: GradientCuff
+model: /gemini/code/tele/models/vicuna-7b-v1.5
+model_name: "vicuna-7b-v1.5"
+conversation_template: "vicuna_v1.1"
+p_times: 10
+sample_times: 10
+mu: 0.02
+threshold: 100.0
+batch_size: 8
+chat_temperature: 0.6
+chat_max_length: 128
+chat_top_p: 0.9
+detect_max_new_tokens: 16
+detect_temperature: 0.6
+detect_top_p: 0.9
+seed: 13
+reject_message: "[Gradient Cuff Reject]: I cannot fulfill your request."

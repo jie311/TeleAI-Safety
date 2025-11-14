@@ -1,0 +1,7 @@
+defender_type: GradSafe
+model: /gemini/code/tele/models/vicuna-7b-v1.5
+model_name: "vicuna-7b-v1.5"
+# Unsafe and safe prompt sets are loaded from defender_texts by default.
+# Adjust threshold to tune sensitivity; higher values make the defender stricter.
+threshold: 0.0478
+verbose: true

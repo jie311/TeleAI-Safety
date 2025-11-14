@@ -1,0 +1,29 @@
+# configs/cavgan.yaml
+defender_type: 'CavGan'
+
+# --- Model Configuration ---
+# The base model that the GAN will be trained on and used for defense.
+# Note: The model is loaded once by the factory and passed to the defender.
+model: "/gemini/code/tele/models/vicuna-7b-v1.5"
+model_name: "vicuna-7b-v1.5"
+
+# --- CavGan Specific Parameters ---
+# The index of the transformer layer to hook into for defense.
+layer_idx: 28
+
+# GAN training parameters
+gen_learning_rate: 0.001
+dis_learning_rate: 0.001
+iteration_num: 2  # Number of epochs for GAN training
+train_length: 64  # Max new tokens during GAN training steps
+
+# Batch composition for training: [benign_samples, malicious_samples, generated_samples]
+batch_num: [10, 10, 2]
+
+# The probability threshold for the discriminator to flag a prompt as malicious.
+pro: 0.9
+
+# --- Paths for GAN Training Data ---
+# These files should contain one prompt per line in a 'question' column.
+pos_data_path: 'telesafety_defense/method_utils/CAVGAN/CAVGAN/data/train/pos.csv'
+neg_data_path: 'telesafety_defense/method_utils/CAVGAN/CAVGAN/data/train/neg.csv'

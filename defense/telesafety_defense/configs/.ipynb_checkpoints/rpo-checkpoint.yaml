@@ -1,0 +1,6 @@
+# configs/rpo.yaml
+
+defender_type: RPO
+
+model: "/gemini/code/Vicuna/Vi"
+model_name: "vicuna-7b-v1.5"

@@ -1,0 +1,22 @@
+# GuardReasoner configuration
+# Adjust paths/parameters to match your environment.
+
+defender_type: "GuardReasoner"
+
+# Path to the GuardReasoner vLLM checkpoint.
+model_path: "/gemini/space/lxw/GuardReasoner-8B"
+
+# Optional: tweak vLLM sampling.
+sampling_kwargs:
+  temperature: 0.1
+  top_p: 0.9
+  top_k: 40
+  max_tokens: 512
+  stop:
+    - "</s>"
+
+# Optional: override vLLM init arguments if your hardware differs.
+tensor_parallel_size: 2
+gpu_memory_utilization: 0.8
+cpu_offload_gb: 8
+max_seq_len_to_capture: 8096
