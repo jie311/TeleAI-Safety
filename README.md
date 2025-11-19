@@ -10,10 +10,10 @@ Large language models (LLMs) are increasingly deployed in high-stakes settings, 
 ```bash
 # Clone the repository
 git clone https://github.com/yuanyc06/teleai-safety.git
-cd TeleAI-Safety
+cd tele-safety
 
 # Install dependencies
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## 🛠️ Usage
