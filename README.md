@@ -9,7 +9,7 @@ Large language models (LLMs) are increasingly deployed in high-stakes settings, 
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/TeleAI-Safety.git
+git clone https://github.com/yuanyc06/teleai-safety.git
 cd TeleAI-Safety
 
 # Install dependencies
