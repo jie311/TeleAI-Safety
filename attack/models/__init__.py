@@ -8,7 +8,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
 def load_model(model_type=None, model_name=None, model_path=None,config=None):
-    
+    if model_type is None:
+        return None
     model_name_lower = model_name.lower() if model_name else ""
     model_type_lower = model_type.lower() if model_type else ""
 

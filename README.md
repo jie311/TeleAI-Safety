@@ -58,10 +58,11 @@ python run_defense.py --defender_config=./configs/defender.yaml --filter_config=
 
 ```bash
 # Evaluate attack results
+cd evaluate
 python eval_summary_report.py \
   --scorer=PatternScorer \
-  --config_path=./configs/eval_config.yaml \
-  --json_path=./results/attack_results.jsonl \
+  --config_path=./config/pattern_scorer.yaml \
+  --json_path=./results/dra_gpt_4o_mini.jsonl \
   --output_path=./evaluation_report.txt
 ```
 
